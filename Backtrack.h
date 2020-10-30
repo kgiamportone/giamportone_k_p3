@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <chrono>
+#include <algorithm>
 
 struct Item{
     int weight;

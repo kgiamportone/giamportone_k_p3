@@ -27,10 +27,11 @@ void greedy1(FILE * input_file, char *output_name) {
         sort(knapsack.begin(), knapsack.end(), [](const Item& lhs, const Item& rhs){
             return lhs.ratio < rhs.ratio;
         });
-
+	/*
         for (int i = 0; i < knapsack.size(); i++) {
             printf("Ratio %f ID %d\n", knapsack[i].ratio, knapsack[i].id);
         }
+	*/
         vector<Item> retVal;
         int price_of_bag = 0;
         int max_profit = 0;
@@ -49,7 +50,7 @@ void greedy1(FILE * input_file, char *output_name) {
         auto time2 = chrono::high_resolution_clock::now();
         auto elapsed = (float)(chrono::duration_cast<chrono::microseconds>(time2 - time1).count());
         fprintf(output_file, "%d %d %lf ", num_items, max_profit, elapsed);
-        for (int i = 0; i < retVal.size(); i++) {
+        for (unsigned long int i = 0; i < retVal.size(); i++) {
             fprintf(output_file, "%d ", retVal[i].id);
         }
         fprintf(output_file, "\n");
@@ -105,7 +106,7 @@ void greedy2(FILE * input_file, char *output_name) {
         // check greatest single item profit
         int indiv_profit = 0;
         Item indiv_item = Item(1, 0, 0); // default
-        for (int i = 0; i < knapsack.size(); i++) {
+        for (unsigned long int i = 0; i < knapsack.size(); i++) {
             if (knapsack[i].weight <= money_to_spend) {
                 if (knapsack[i].profit > indiv_profit) {
                     indiv_profit = knapsack[i].profit;
@@ -119,7 +120,7 @@ void greedy2(FILE * input_file, char *output_name) {
 
         if (max_profit > indiv_profit) {
             fprintf(output_file, "%d %d %lf ", num_items, max_profit, elapsed);
-            for (int i = 0; i < retVal.size(); i++) {
+            for (unsigned long int i = 0; i < retVal.size(); i++) {
                 fprintf(output_file, "%d ", retVal[i].id);
             }
         }
@@ -203,7 +204,7 @@ void backtrack(FILE * input_file, char *output_name) {
         // check greatest single item profit
         int indiv_profit = 0;
         Item indiv_item = Item(1, 0, 0); // default
-        for (int i = 0; i < knapsack.size(); i++) {
+        for (long unsigned int i = 0; i < knapsack.size(); i++) {
             if (knapsack[i].weight <= money_to_spend) {
                 if (knapsack[i].profit > indiv_profit) {
                     indiv_profit = knapsack[i].profit;
@@ -223,7 +224,7 @@ void backtrack(FILE * input_file, char *output_name) {
         if (max_profit > indiv_profit && max_profit > backtrack_profit) {
             printf("greedy1 chosen\n");
             fprintf(output_file, "%d %d %lf ", num_items, max_profit, elapsed);
-            for (int i = 0; i < retVal.size(); i++) {
+            for (long unsigned int i = 0; i < retVal.size(); i++) {
                 fprintf(output_file, "%d ", retVal[i].id);
             }
         }

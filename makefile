@@ -1,9 +1,9 @@
 FLAGS = -g -Wall -Werror -std=c++14
-RUNNAME = program3
-.PHONY: program3 clean run
+RUNNAME = submission
+.PHONY: submission clean run
 
-program3: Backtrack.o
-	g++ $(FLAGS) Backtrack.o -o program3
+submission: Backtrack.o
+	g++ $(FLAGS) Backtrack.o -o submission
 
 Backtrack.o: Backtrack.cpp
 	g++ -c $(FLAGS) Backtrack.cpp -o Backtrack.o

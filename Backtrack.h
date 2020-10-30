@@ -1,0 +1,27 @@
+#ifndef BACKTRACK_H
+#define BACKTRACK_H
+
+#include <vector>
+#include <string.h>
+#include <iostream>
+#include <fstream>
+#include <math.h>
+#include <stdio.h>
+#include <cstdlib>
+#include <chrono>
+
+struct Item{
+    int weight;
+    int profit;
+    int id;
+    double ratio;
+
+    Item(int w, int p, int i) {
+        weight = w;
+        profit = p;
+        id = i;
+        ratio = p / w;
+    }
+};
+
+#endif
